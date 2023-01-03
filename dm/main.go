@@ -1,4 +1,4 @@
-package piscine
+package main
 
 import (
 	"bufio"
@@ -54,34 +54,43 @@ func main() {
 		secretMessage := ""
 
 		// Indicateurs pour savoir si nous devons ignorer un caractère ou ajouter un caractère au début de la chaîne de sortie
-		sup := false
-		textenmoins := false
+		ignore := false
+
+		adda := false
 
 		// Pour chaque caractère du code secret
 		for _, letter := range secretCode {
-			if sup {
-				// Si nous devons ignorer un caractère, vérifier si c'est la fin de la séquence d'ignore
-				if string(letter) == "-" {
-					sup = false
+			if ignore {
+				// Vérifier si c'est la fin de la séquence d'ignore
+				if letter == '-' {
+					ignore = false
+				} else {
+					// Passer au caractère suivant
+					continue
 				}
-				if string(letter) == "-" {
-					sup = true
-				}
-				// Passer au caractère suivant
+			}
+
+			// Si le caractère est un "-", activer l'ignore
+			if letter == '-' {
+				ignore = true
 				continue
 			}
 
-			if textenmoins {
+			if adda {
+				//var add string
 				// Si nous devons ajouter un caractère au début de la chaîne de sortie,
 				// vérifier si c'est la fin de la séquence d'ajout
 				if string(letter) == "+" {
-					textenmoins = false
+					//add =string(letter)
+					adda = false
 				}
 				if string(letter) == " " {
-					textenmoins = true
+					adda = true
+
 				}
+
 				// Ajouter le caractère au début de la chaîne de sortie
-				secretMessage = string(letter) + secretMessage
+				secretMessage = secretMessage + string(letter) //+ add
 				continue
 			}
 
