@@ -98,10 +98,10 @@ func autre() {
 				continue
 			}
 
-			// // Si le caractère saisie est un espace ca reinitialise la variable addedLetter
-			// if string(letter) == " " {
-			// 	addedLetter = ""
-			// }
+			// Si le caractère saisie est un espace ca reinitialise la variable addedLetter
+			if string(letter) == " " {
+				addedLetter = ""
+			}
 
 			// Ajouter la lettre ajoutée et la traduction correspondante du dictionnaire à la chaîne de sortie
 			secretMessage += secretDictionary[string(letter)]
@@ -110,27 +110,6 @@ func autre() {
 		// Ajouter la lettre ajouté à la fin de la chaîne de sortie
 		secretMessage += addedLetter + secretDictionary[string(addedLetter)]
 
-		// if adda {
-		// 	//var add string
-		// 	// Si nous devons ajouter un caractère au début de la chaîne de sortie,
-		// 	// vérifier si c'est la fin de la séquence d'ajout
-		// 	if string(letter) == "+" {
-		// 		//add =string(letter)
-		// 		adda = false
-		// 	}
-		// 	if string(letter) == " " {
-		// 		adda = true
-
-		// 	}
-
-		// 	// Ajouter le caractère au début de la chaîne de sortie
-		// 	secretMessage = secretMessage + string(letter) //+ add
-		// 		continue
-		// 	}
-
-		// 	// Si aucun des indicateurs n'est activé, ajouter la traduction correspondante au dictionnaire à la chaîne de sortie
-		// 	secretMessage += secretDictionary[string(letter)]
-		// }
 		fmt.Println("Message secret :", secretMessage)
 	}
 }
